@@ -1,0 +1,24 @@
+server:
+  port: ${port:9091}
+#  port: 9091
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud
+    username: root
+    password: root
+  application:
+    name: user-producer-server
+mybatis:
+  type-aliases-package: com.tang.user.pojo
+#eureka配置
+eureka:
+  client:
+    service-url:
+      defaultZone: ${defaultZone:http://127.0.0.1:10086/eureka}
+  #      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    ip-address: 127.0.0.1 # ip地址
+    prefer-ip-address: true # 更倾向于使用ip，而不是host名
+    lease-expiration-duration-in-seconds: 90 #服务失效时间，默认值90秒
+    lease-renewal-interval-in-seconds: 30 #服务续约(renew)的间隔，默认为30秒
